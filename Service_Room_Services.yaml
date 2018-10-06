@@ -3,24 +3,11 @@ kind: Deployment
 metadata: 
   name: room-services
 spec:
-  selector:
-    matchLabels:
-      app: room-services
-      tier: backend
-      track: stable
-  replicas: 2
-  template:
-    metadata:
-      labels:
-        app: room-services
-        tier: backend
-        track: stable
-    spec:
-      containers:
-        - name: room-services
-          image: syskata/room-services
-          ports:
-           - name: http
-             containerPort: 8001 
+  selector:   
+    app: room-services  
+    ports:
+    - protocol: TCP 
+      port: 8001
+      targetPort: http
 
 
